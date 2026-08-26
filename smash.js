@@ -154,3 +154,17 @@ console.log("star",shape);
 	SCREEN.innerHTML +=shape;
 	playSound();
 	}
+
+function clicker() {
+    for (let i = 0; i < 1000; i++) {
+    	document.getElementById("clicker").click();
+    }
+}
+
+clicker();
+
+// function printMousePos(event) {
+// 	console.log("clientX: " + event.clientX +" - clientY: " + event.clientY);
+// 	}
+// 
+// document.addEventListener("click", printMousePos);
