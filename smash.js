@@ -1,35 +1,5 @@
-const ORIGINX = 0;
-const ORIGINY = 0;
-const VIEWWIDTH = 600;
-const VIEWHEIGHT = 600;
-
-function centerPolygon(pointsString) {
-	// Convert "x,y x,y x,y" into [[x,y], [x,y], ...]
-	const points = pointsString.trim().split(/\s+/).map(point => {
-		const [x, y] = point.split(',').map(Number);
-		return [x, y];
-		});
-	// Find the polygon's bounding box
-	const xs = points.map(p => p[0]);
-	const ys = points.map(p => p[1]);
-	const minX = Math.min(...xs);
-	const maxX = Math.max(...xs);
-	const minY = Math.min(...ys);
-	const maxY = Math.max(...ys);
-	// Center of polygon's bounding box
-	const polygonCenterX = (minX + maxX) / 2;
-	const polygonCenterY = (minY + maxY) / 2;
-	// Center of the viewBox
-	const viewBoxCenterX = ORIGINX + VIEWWIDTH / 2;
-	const viewBoxCenterY = ORIGINY + VIEWHEIGHT / 2;
-	// Required translation
-	const dx = viewBoxCenterX - polygonCenterX;
-	const dy = viewBoxCenterY - polygonCenterY;
-	return `translate(${dx}, ${dy})`;
-	}
-
-const CENTERHIGH = 560;
-const CENTERLOW = 40;
+const CENTERHIGH = 600;
+const CENTERLOW = 0;
 const DEGREESHIGH = 360;
 const DEGREESLOW = 0;
 
@@ -115,7 +85,6 @@ function boop () {
 			break;
 		case 2:
 			points = polygonPoints(TRIANGLE,randomIntegerRange(CENTERLOW,CENTERHIGH), randomIntegerRange(CENTERLOW,CENTERHIGH), randomIntegerRange(60,120), randomIntegerRange(10,60), randomIntegerRange(2,24));
-			trans = centerPolygon(points);
 			shape +=
 				"<polygon points=\"" +
 				points +
@@ -123,8 +92,6 @@ function boop () {
 				randomColor() +
 				"\" transform=\"rotate(" +
 				randomIntegerRange(DEGREESLOW,DEGREESHIGH)+
-				") translate(" +
-				trans+
 				")\" />";
 			break;
 		case 3:
@@ -148,19 +115,13 @@ function boop () {
 				")\" />";
 		}
 	SCREEN.innerHTML +=shape;
-	playSound();
+ 	playSound();
 	}
 
 // function clicker() {
-//     for (let i = 0; i < 1000; i++) {
-//     	document.getElementById("clicker").click();
-//     }
+// 	for (let i = 0; i < 1000; i++) {
+// 		document.getElementById("clicker").click();
+// 	}
 // }
 // 
 // clicker();
-
-// function printMousePos(event) {
-// 	console.log("clientX: " + event.clientX +" - clientY: " + event.clientY);
-// 	}
-// 
-// document.addEventListener("click", printMousePos);
