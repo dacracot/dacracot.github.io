@@ -28,8 +28,8 @@ function centerPolygon(pointsString) {
 	return `translate(${dx}, ${dy})`;
 	}
 
-const CENTERHIGH = 400;
-const CENTERLOW = 200;
+const CENTERHIGH = 560;
+const CENTERLOW = 40;
 const DEGREESHIGH = 360;
 const DEGREESLOW = 0;
 
@@ -53,7 +53,8 @@ function polygonPoints(sides, cx, cy, radius, rotation = -Math.PI / 2) {
 	}
 
 function randomIntegerRange (min = 0, max = 1200) {
-	return(Math.round((Math.random()*(max-min))+min));
+	rand = Math.round((Math.random()*(max-min))+min);
+	return(rand);
 	}
 
 const COLORS = ["red","orange","yellow","green","blue","indigo","violet","white","black"];
@@ -95,7 +96,6 @@ function boop () {
 				"\" fill=\"" +
 				randomColor() +
 				"\" />";
-console.log("circle",shape);
 			break;
 		case 1:
 			shape +=
@@ -112,7 +112,6 @@ console.log("circle",shape);
 				"\" transform=\"rotate(" +
 				randomIntegerRange(DEGREESLOW,DEGREESHIGH)+
 				")\" />";
-console.log("rect",shape);
 			break;
 		case 2:
 			points = polygonPoints(TRIANGLE,randomIntegerRange(CENTERLOW,CENTERHIGH), randomIntegerRange(CENTERLOW,CENTERHIGH), randomIntegerRange(60,120), randomIntegerRange(10,60), randomIntegerRange(2,24));
@@ -127,7 +126,6 @@ console.log("rect",shape);
 				") translate(" +
 				trans+
 				")\" />";
-console.log("TRIANGLE",shape);
 			break;
 		case 3:
 			shape +=
@@ -138,7 +136,6 @@ console.log("TRIANGLE",shape);
 				"\" transform=\"rotate(" +
 				randomIntegerRange(DEGREESLOW,DEGREESHIGH)+
 				")\" />";
-console.log("PENTAGON",shape);
 			break;
 		default:
 			shape +=
@@ -149,19 +146,18 @@ console.log("PENTAGON",shape);
 				"\" transform=\"rotate(" +
 				randomIntegerRange(DEGREESLOW,DEGREESHIGH)+
 				")\" />";
-console.log("star",shape);
 		}
 	SCREEN.innerHTML +=shape;
 	playSound();
 	}
 
-function clicker() {
-    for (let i = 0; i < 1000; i++) {
-    	document.getElementById("clicker").click();
-    }
-}
-
-clicker();
+// function clicker() {
+//     for (let i = 0; i < 1000; i++) {
+//     	document.getElementById("clicker").click();
+//     }
+// }
+// 
+// clicker();
 
 // function printMousePos(event) {
 // 	console.log("clientX: " + event.clientX +" - clientY: " + event.clientY);
