@@ -1,19 +1,24 @@
 //---------------------------------------------------------------------
-// console.log("width  = "+window.innerWidth);
-// console.log("height = "+window.innerHeight);
-
-const MAXWIDTH = window.innerWidth;
-const MAXHEIGHT = window.innerHeight;
-
-window.addEventListener("resize", function () {
-    console.log("Width:", window.innerWidth);
-    console.log("Height:", window.innerHeight);
-	});
-
-const CENTERHIGH = 600;
-const CENTERLOW = 0;
+const SVG = document.querySelector("svg");
+let WIDTHMAX = 600;
+const WIDTHMIN = 0;
+let HEIGHTMAX = 600;
+const HEIGHTMIN = 0;
 const DEGREESHIGH = 360;
 const DEGREESLOW = 0;
+//---------------------------------------------------------------------
+function view() {
+    WIDTHMAX = window.innerWidth;
+    HEIGHTMAX = window.innerHeight;
+	SVG.setAttribute("viewBox", "0 0 "+WIDTHMAX+" "+HEIGHTMAX);
+	SVG.setAttribute("width", WIDTHMAX);
+	SVG.setAttribute("height", HEIGHTMAX);
+// console.log("WIDTHMAX - "+WIDTHMAX);
+// console.log("HEIGHTMAX - "+HEIGHTMAX);
+	}
+//---------------------------------------------------------------------
+view();
+window.addEventListener("resize", function(){view()});
 //---------------------------------------------------------------------
 function starPoints(cx, cy, outerRadius, innerRadius, points = 5, rotation = -Math.PI / 2) {
 	const coordinates = [];
@@ -69,9 +74,9 @@ function boop () {
 		case 0:
 			shape +=
 				"<circle cx=\"" +
-				randomIntegerRange(CENTERLOW,CENTERHIGH) +
+				randomIntegerRange(WIDTHMIN,WIDTHMAX) +
 				"\" cy=\"" +
-				randomIntegerRange(CENTERLOW,CENTERHIGH) +
+				randomIntegerRange(HEIGHTMIN,HEIGHTMAX) +
 				"\" r=\"" +
 				randomIntegerRange(RADIUSLOW,RADIUSHIGH) +
 				"\" fill=\"" +
@@ -82,9 +87,9 @@ function boop () {
 		case 1:
 			shape +=
 				"<rect x=\"" +
-				randomIntegerRange(CENTERLOW,CENTERHIGH)+
+				randomIntegerRange(WIDTHMIN,WIDTHMAX)+
 				"\" y=\"" +
-				randomIntegerRange(CENTERLOW,CENTERHIGH)+
+				randomIntegerRange(HEIGHTMIN,HEIGHTMAX)+
 				"\" width=\"" +
 				randomIntegerRange(RADIUSLOW,RADIUSHIGH)+
 				"\" height=\"" +
@@ -98,8 +103,8 @@ function boop () {
 			shape +=
 				"<polygon points=\"" +
 				polygonPoints(TRIANGLE,
-						randomIntegerRange(CENTERLOW,CENTERHIGH),
-						randomIntegerRange(CENTERLOW,CENTERHIGH),
+						randomIntegerRange(WIDTHMIN,WIDTHMAX),
+						randomIntegerRange(HEIGHTMIN,HEIGHTMAX),
 						randomIntegerRange(RADIUSLOW,RADIUSHIGH),
 						randomIntegerRange(DEGREESLOW,DEGREESHIGH)) +
 				"\" fill=\"" +
@@ -111,8 +116,8 @@ function boop () {
 			shape +=
 				"<polygon points=\"" +
 				polygonPoints(PENTAGON,
-						randomIntegerRange(CENTERLOW,CENTERHIGH),
-						randomIntegerRange(CENTERLOW,CENTERHIGH),
+						randomIntegerRange(WIDTHMIN,WIDTHMAX),
+						randomIntegerRange(HEIGHTMIN,HEIGHTMAX),
 						randomIntegerRange(RADIUSLOW,RADIUSHIGH),
 						randomIntegerRange(DEGREESLOW,DEGREESHIGH)) +
 				"\" fill=\"" +
@@ -125,11 +130,11 @@ function boop () {
 			shape +=
 				"<polygon points=\"" +
 				starPoints(
-						randomIntegerRange(CENTERLOW,CENTERHIGH),
-						randomIntegerRange(CENTERLOW,CENTERHIGH),
+						randomIntegerRange(WIDTHMIN,WIDTHMAX),
+						randomIntegerRange(HEIGHTMIN,HEIGHTMAX),
 						randomIntegerRange(RADIUSLOW,RADIUSHIGH),
 						randomIntegerRange(RADIUSLOW,RADIUSHIGH),
-						randomIntegerRange(5,24),
+						randomIntegerRange(5,24), // number of points
 						randomIntegerRange(DEGREESLOW,DEGREESHIGH)) +
 				"\" fill=\"" +
 				randomColor() +
