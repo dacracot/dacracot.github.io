@@ -1,4 +1,15 @@
 //---------------------------------------------------------------------
+console.log("width  = "+window.innerWidth);
+console.log("height = "+window.innerHeight);
+
+const MAXWIDTH = window.innerWidth;
+const MAXHEIGHT = window.innerHeight;
+
+window.addEventListener("resize", function () {
+    console.log("Width:", window.innerWidth);
+    console.log("Height:", window.innerHeight);
+	});
+
 const CENTERHIGH = 600;
 const CENTERLOW = 0;
 const DEGREESHIGH = 360;
