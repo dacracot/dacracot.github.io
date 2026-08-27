@@ -28,19 +28,18 @@ function starPoints(cx, cy, outerRadius, innerRadius, points = 5, rotation = -Ma
 function polygonPoints(sides, cx, cy, radius, rotation = -Math.PI / 2) {
 	const coordinates = [];
 	for (let i = 0; i < sides; i++) {
-		const angle = rotation + i * (2 * Math.PI / 3);
+		const angle = rotation + i * (2 * Math.PI / sides);
 		coordinates.push(`${cx + radius * Math.cos(angle)},${cy + radius * Math.sin(angle)}`);
 		}
 	return coordinates.join(" ");
 	}
 //---------------------------------------------------------------------
 function randomIntegerRange (min = 0, max = 1200) {
-	rand = Math.round((Math.random()*(max-min))+min);
-	return(rand);
+	return(Math.floor((Math.random()*(max-min))+min));
 	}
 //---------------------------------------------------------------------
 const COLORS = ["red","orange","yellow","green","blue","indigo","violet","white","black"];
-const COLORSMAX = 8;
+const COLORSMAX = COLORS.length;
 const COLORSMIN = 0;
 //---------------------------------------------------------------------
 function randomColor () {
@@ -48,7 +47,7 @@ function randomColor () {
 	}
 //---------------------------------------------------------------------
 const SOUNDS = ["Sounds/boing.mp3","Sounds/blip.mp3","Sounds/toot.mp3","Sounds/blurp.mp3","Sounds/floop.mp3","Sounds/pluck.mp3","Sounds/honk.mp3","Sounds/peop.mp3","Sounds/bell.mp3","Sounds/crack.mp3"];
-const SOUNDSMAX = 8;
+const SOUNDSMAX = SOUNDS.length;
 const SOUNDSMIN = 0;
 //---------------------------------------------------------------------
 function playSound() {
@@ -96,7 +95,7 @@ function boop () {
 				")\" />";
 			break;
 		case 2:
-			points = polygonPoints(TRIANGLE,randomIntegerRange(CENTERLOW,CENTERHIGH), randomIntegerRange(CENTERLOW,CENTERHIGH), randomIntegerRange(60,120), randomIntegerRange(10,60), randomIntegerRange(2,24));
+			points = polygonPoints(TRIANGLE,randomIntegerRange(CENTERLOW,CENTERHIGH), randomIntegerRange(CENTERLOW,CENTERHIGH), randomIntegerRange(60,120), randomIntegerRange(10,60));
 			shape +=
 				"<polygon points=\"" +
 				points +
@@ -109,7 +108,7 @@ function boop () {
 		case 3:
 			shape +=
 				"<polygon points=\"" +
-				polygonPoints(PENTAGON,randomIntegerRange(CENTERLOW,CENTERHIGH), randomIntegerRange(CENTERLOW,CENTERHIGH), randomIntegerRange(60,120), randomIntegerRange(10,60), randomIntegerRange(2,24)) +
+				polygonPoints(PENTAGON,randomIntegerRange(CENTERLOW,CENTERHIGH), randomIntegerRange(CENTERLOW,CENTERHIGH), randomIntegerRange(60,120), randomIntegerRange(10,60)) +
 				"\" fill=\"" +
 				randomColor() +
 				"\" transform=\"rotate(" +
@@ -117,6 +116,7 @@ function boop () {
 				")\" />";
 			break;
 		default:
+			// stars
 			shape +=
 				"<polygon points=\"" +
 				starPoints(randomIntegerRange(CENTERLOW,CENTERHIGH), randomIntegerRange(CENTERLOW,CENTERHIGH), randomIntegerRange(60,120), randomIntegerRange(10,60), randomIntegerRange(2,24)) +
