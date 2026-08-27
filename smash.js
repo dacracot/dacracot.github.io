@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------
-console.log("width  = "+window.innerWidth);
-console.log("height = "+window.innerHeight);
+// console.log("width  = "+window.innerWidth);
+// console.log("height = "+window.innerHeight);
 
 const MAXWIDTH = window.innerWidth;
 const MAXHEIGHT = window.innerHeight;
@@ -56,7 +56,7 @@ function playSound() {
 	}
 //---------------------------------------------------------------------
 const SCREEN = document.getElementById("screen");
-const SHAPESMAX = 4;
+const SHAPESMAX = 5;
 const SHAPESMIN = 0;
 const RADIUSHIGH = 90;
 const RADIUSLOW = 16;
@@ -77,6 +77,7 @@ function boop () {
 				"\" fill=\"" +
 				randomColor() +
 				"\" />";
+// console.log("circle - "+shape);
 			break;
 		case 1:
 			shape +=
@@ -90,41 +91,50 @@ function boop () {
 				randomIntegerRange(RADIUSLOW,RADIUSHIGH)+
 				"\" fill=\"" +
 				randomColor() +
-				"\" transform=\"rotate(" +
-				randomIntegerRange(DEGREESLOW,DEGREESHIGH)+
-				")\" />";
+				"\" />";
+// console.log("rect - "+shape);
 			break;
 		case 2:
-			points = polygonPoints(TRIANGLE,randomIntegerRange(CENTERLOW,CENTERHIGH), randomIntegerRange(CENTERLOW,CENTERHIGH), randomIntegerRange(60,120), randomIntegerRange(10,60));
 			shape +=
 				"<polygon points=\"" +
-				points +
+				polygonPoints(TRIANGLE,
+						randomIntegerRange(CENTERLOW,CENTERHIGH),
+						randomIntegerRange(CENTERLOW,CENTERHIGH),
+						randomIntegerRange(RADIUSLOW,RADIUSHIGH),
+						randomIntegerRange(DEGREESLOW,DEGREESHIGH)) +
 				"\" fill=\"" +
 				randomColor() +
-				"\" transform=\"rotate(" +
-				randomIntegerRange(DEGREESLOW,DEGREESHIGH)+
-				")\" />";
+				"\" />";
+// console.log("TRIANGLE - "+shape);
 			break;
 		case 3:
 			shape +=
 				"<polygon points=\"" +
-				polygonPoints(PENTAGON,randomIntegerRange(CENTERLOW,CENTERHIGH), randomIntegerRange(CENTERLOW,CENTERHIGH), randomIntegerRange(60,120), randomIntegerRange(10,60)) +
+				polygonPoints(PENTAGON,
+						randomIntegerRange(CENTERLOW,CENTERHIGH),
+						randomIntegerRange(CENTERLOW,CENTERHIGH),
+						randomIntegerRange(RADIUSLOW,RADIUSHIGH),
+						randomIntegerRange(DEGREESLOW,DEGREESHIGH)) +
 				"\" fill=\"" +
 				randomColor() +
-				"\" transform=\"rotate(" +
-				randomIntegerRange(DEGREESLOW,DEGREESHIGH)+
-				")\" />";
+				"\" />";
+// console.log("PENTAGON - "+shape);
 			break;
 		default:
 			// stars
 			shape +=
 				"<polygon points=\"" +
-				starPoints(randomIntegerRange(CENTERLOW,CENTERHIGH), randomIntegerRange(CENTERLOW,CENTERHIGH), randomIntegerRange(60,120), randomIntegerRange(10,60), randomIntegerRange(2,24)) +
+				starPoints(
+						randomIntegerRange(CENTERLOW,CENTERHIGH),
+						randomIntegerRange(CENTERLOW,CENTERHIGH),
+						randomIntegerRange(RADIUSLOW,RADIUSHIGH),
+						randomIntegerRange(RADIUSLOW,RADIUSHIGH),
+						randomIntegerRange(5,24),
+						randomIntegerRange(DEGREESLOW,DEGREESHIGH)) +
 				"\" fill=\"" +
 				randomColor() +
-				"\" transform=\"rotate(" +
-				randomIntegerRange(DEGREESLOW,DEGREESHIGH)+
-				")\" />";
+				"\" />";
+// console.log("star - "+shape);
 		}
 	SCREEN.innerHTML +=shape;
  	playSound();
