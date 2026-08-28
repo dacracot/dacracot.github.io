@@ -13,8 +13,6 @@ function view() {
 	SVG.setAttribute("viewBox", "0 0 "+WIDTHMAX+" "+HEIGHTMAX);
 	SVG.setAttribute("width", WIDTHMAX);
 	SVG.setAttribute("height", HEIGHTMAX);
-// console.log("WIDTHMAX - "+WIDTHMAX);
-// console.log("HEIGHTMAX - "+HEIGHTMAX);
 	}
 //---------------------------------------------------------------------
 view();
@@ -82,7 +80,7 @@ function boop () {
 				"\" fill=\"" +
 				randomColor() +
 				"\" />";
-// console.log("circle - "+shape);
+				// console.log("circle - "+shape);
 			break;
 		case 1:
 			shape +=
@@ -97,7 +95,7 @@ function boop () {
 				"\" fill=\"" +
 				randomColor() +
 				"\" />";
-// console.log("rect - "+shape);
+				// console.log("rect - "+shape);
 			break;
 		case 2:
 			shape +=
@@ -110,7 +108,7 @@ function boop () {
 				"\" fill=\"" +
 				randomColor() +
 				"\" />";
-// console.log("TRIANGLE - "+shape);
+				// console.log("TRIANGLE - "+shape);
 			break;
 		case 3:
 			shape +=
@@ -123,7 +121,7 @@ function boop () {
 				"\" fill=\"" +
 				randomColor() +
 				"\" />";
-// console.log("PENTAGON - "+shape);
+				// console.log("PENTAGON - "+shape);
 			break;
 		default:
 			// stars
@@ -139,7 +137,7 @@ function boop () {
 				"\" fill=\"" +
 				randomColor() +
 				"\" />";
-// console.log("star - "+shape);
+				// console.log("star - "+shape);
 		}
 	SCREEN.innerHTML +=shape;
  	playSound();
