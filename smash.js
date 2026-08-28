@@ -61,8 +61,8 @@ function playSound() {
 const SCREEN = document.getElementById("screen");
 const SHAPESMAX = 5;
 const SHAPESMIN = 0;
-const RADIUSHIGH = 90;
-const RADIUSLOW = 16;
+const RADIUSHIGH = 180;
+const RADIUSLOW = 48;
 const TRIANGLE = 3;
 const PENTAGON = 5;
 //---------------------------------------------------------------------
