@@ -67,7 +67,7 @@ const TRIANGLE = 3;
 const PENTAGON = 5;
 //---------------------------------------------------------------------
 function boop () {
-	shape = "";
+	let shape = "";
 	switch(randomIntegerRange(SHAPESMIN,SHAPESMAX)) {
 		case 0:
 			shape +=
