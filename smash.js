@@ -4,7 +4,9 @@ let WIDTHMAX = 600;
 const WIDTHMIN = 0;
 let HEIGHTMAX = 600;
 const HEIGHTMIN = 0;
-const DEGREESHIGH = 360;
+const RADIANSHIGH = Math.PI;
+const RADIANSLOW = 0;
+const DEGREESHIGH = 180;
 const DEGREESLOW = 0;
 //---------------------------------------------------------------------
 function view() {
@@ -18,7 +20,7 @@ function view() {
 view();
 window.addEventListener("resize", function(){view()});
 //---------------------------------------------------------------------
-function starPoints(cx, cy, outerRadius, innerRadius, points = 5, rotation = -Math.PI / 2) {
+function starPoints(cx, cy, outerRadius, innerRadius, points = 5, rotation) {
 	const coordinates = [];
 	for (let i = 0; i < points * 2; i++) {
 		const radius = i % 2 === 0 ? outerRadius : innerRadius;
@@ -28,7 +30,7 @@ function starPoints(cx, cy, outerRadius, innerRadius, points = 5, rotation = -Ma
 	return(coordinates.join(" "));
 	}
 //---------------------------------------------------------------------
-function polygonPoints(sides, cx, cy, radius, rotation = -Math.PI / 2) {
+function polygonPoints(sides, cx, cy, radius, rotation) {
 	const coordinates = [];
 	for (let i = 0; i < sides; i++) {
 		const angle = rotation + i * (2 * Math.PI / sides);
@@ -59,6 +61,7 @@ function playSound() {
 	}
 //---------------------------------------------------------------------
 const SCREEN = document.getElementById("screen");
+const DIALOG = document.getElementById("warning");
 const SHAPESMAX = 5;
 const SHAPESMIN = 0;
 const RADIUSHIGH = 180;
@@ -94,7 +97,10 @@ function boop () {
 				randomIntegerRange(RADIUSLOW,RADIUSHIGH)+
 				"\" fill=\"" +
 				randomColor() +
-				"\" />";
+				"\" transform=\"" +
+				"rotate(" + 
+				randomIntegerRange(DEGREESLOW,DEGREESHIGH) +
+				")\"/>";
 				// console.log("rect - "+shape);
 			break;
 		case 2:
@@ -104,7 +110,7 @@ function boop () {
 						randomIntegerRange(WIDTHMIN,WIDTHMAX),
 						randomIntegerRange(HEIGHTMIN,HEIGHTMAX),
 						randomIntegerRange(RADIUSLOW,RADIUSHIGH),
-						randomIntegerRange(DEGREESLOW,DEGREESHIGH)) +
+						randomIntegerRange(RADIANSLOW,RADIANSHIGH)) +
 				"\" fill=\"" +
 				randomColor() +
 				"\" />";
@@ -117,7 +123,7 @@ function boop () {
 						randomIntegerRange(WIDTHMIN,WIDTHMAX),
 						randomIntegerRange(HEIGHTMIN,HEIGHTMAX),
 						randomIntegerRange(RADIUSLOW,RADIUSHIGH),
-						randomIntegerRange(DEGREESLOW,DEGREESHIGH)) +
+						randomIntegerRange(RADIANSLOW,RADIANSHIGH)) +
 				"\" fill=\"" +
 				randomColor() +
 				"\" />";
@@ -133,7 +139,7 @@ function boop () {
 						randomIntegerRange(RADIUSLOW,RADIUSHIGH),
 						randomIntegerRange(RADIUSLOW,RADIUSHIGH),
 						randomIntegerRange(5,24), // number of points
-						randomIntegerRange(DEGREESLOW,DEGREESHIGH)) +
+						randomIntegerRange(RADIANSLOW,RADIANSHIGH)) +
 				"\" fill=\"" +
 				randomColor() +
 				"\" />";
@@ -142,4 +148,6 @@ function boop () {
 	SCREEN.innerHTML +=shape;
  	playSound();
 	}
+//---------------------------------------------------------------------
+DIALOG.show();
 //---------------------------------------------------------------------
