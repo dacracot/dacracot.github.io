@@ -29,9 +29,9 @@ Every click or touch invokes the game play.
 A single interaction produces:
 
 - One randomly selected shape
-  - at random position on the screen
-  - of random size
-  - of random color
+  - at a random position on the screen
+  - of a random size
+  - of a random color
 - One randomly selected sound
 
 The newly generated shape remains on the screen. Subsequent interactions add additional shapes rather than replacing the previous ones.
