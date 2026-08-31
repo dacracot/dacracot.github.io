@@ -10,14 +10,24 @@
 	<meta name="apple-mobile-web-app-title" content="Baby Smash"/>
 	<meta name="application-name" content="Baby Smash"/>
 	<meta name="mobile-web-app-capable" content="yes"/>
-	<link rel=manifest" href="smash.json"/>
+	<link rel="manifest" href="smash.json"/>
 	<!-- =========================================================================== -->
 	<title>Baby Smash</title>
+	<style>
+		html, body {
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			background-color:black;
+		}
+	</style>
 </head>
-<body style="background-color:black;" onclick="boop();">
-<dialog id="warning" onclick="close()" style="top:50%;">
+<body onclick="boop();">
+<dialog id="warning" onclick="this.close()" style="top:50%;">
 	If necessary, avoid your little one exiting Baby Smash<br/>
-	by following the instructions for Apple's Guided Access.
+	by following the instructions for <a href="https://www.youtube.com/watch?v=fzBi3EzfTRw">Apple's Guided Access</a>.
 </dialog>
 <svg
 	xmlns="http://www.w3.org/2000/svg"

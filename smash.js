@@ -86,20 +86,23 @@ function boop () {
 				// console.log("circle - "+shape);
 			break;
 		case 1:
+			let x = randomIntegerRange(WIDTHMIN,WIDTHMAX);
+			let y = randomIntegerRange(HEIGHTMIN,HEIGHTMAX);
+			let width = randomIntegerRange(RADIUSLOW,RADIUSHIGH);
+			let height = randomIntegerRange(RADIUSLOW,RADIUSHIGH);
+			let cx = x + width / 2;
+			let cy = y + height / 2;
 			shape +=
-				"<rect x=\"" +
-				randomIntegerRange(WIDTHMIN,WIDTHMAX)+
-				"\" y=\"" +
-				randomIntegerRange(HEIGHTMIN,HEIGHTMAX)+
-				"\" width=\"" +
-				randomIntegerRange(RADIUSLOW,RADIUSHIGH)+
-				"\" height=\"" +
-				randomIntegerRange(RADIUSLOW,RADIUSHIGH)+
+				"<rect x=\"" + x +
+				"\" y=\"" + y +
+				"\" width=\"" + width +
+				"\" height=\"" + height +
 				"\" fill=\"" +
 				randomColor() +
 				"\" transform=\"" +
 				"rotate(" + 
 				randomIntegerRange(DEGREESLOW,DEGREESHIGH) +
+				"," + cx + "," + cy +
 				")\"/>";
 				// console.log("rect - "+shape);
 			break;
