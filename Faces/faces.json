@@ -1,0 +1,9 @@
+const FACES = {
+	"faces": [
+		{"file": "Harold.png", "name": "Da Da"},
+		{"file": "Karen.png", "name": "Ma Ma"},
+		{"file": "Harry.png", "name": "Harry"},
+		{"file": "Cindy.png", "name": "Cindy"},
+		{"file": "Dog.png", "name": "Fido"}
+		]
+	}

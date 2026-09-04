@@ -245,6 +245,15 @@ function digits () {
 	speak(String.fromCharCode(myDigit+('0'.charCodeAt(0))));
 	}
 //---------------------------------------------------------------------
+// const FACES = { ~~ Faces/faces.json
+//---------------------------------------------------------------------
+function faces() {
+	FACES.faces.forEach(face => {
+console.log("File:", face.file);
+console.log("Name:", face.name);
+		});
+	}
+//---------------------------------------------------------------------
 function boop () {
 	switch(mode) {
 		case 0:
