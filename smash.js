@@ -156,6 +156,7 @@ function shapes () {
 //---------------------------------------------------------------------
 function speak(text) {
 	const synth = window.speechSynthesis;
+	synth.cancel();
 	const utterance = new SpeechSynthesisUtterance(text);
 	synth.speak(utterance);
 	}
@@ -203,7 +204,7 @@ function letters () {
 		"translate(" + 
 		x + "," + y +
 		") scale(" + 
- 		randomIntegerRange(0,5)  +
+ 		randomIntegerRange(1,5)  +
  		")\"/>";
 // 	console.log("letter - "+letter);
 	SCREEN.innerHTML +=letter;
