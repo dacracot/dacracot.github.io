@@ -45,7 +45,7 @@ function randomIntegerRange (min = 0, max = 1200) {
 	return(Math.floor((Math.random()*(max-min))+min));
 	}
 //---------------------------------------------------------------------
-const COLORS = ["red","orange","yellow","green","blue","indigo","violet","white","black"];
+const COLORS = ["red","orange","yellow","green","blue","indigo","violet","white","#111111"]; // blackish
 const COLORSMAX = COLORS.length;
 const COLORSMIN = 0;
 //---------------------------------------------------------------------
