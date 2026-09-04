@@ -32,15 +32,22 @@
 	</style>
 </head>
 <body onclick="boop();">
-<dialog id="warning" onclick="this.close()" style="top:50%;">
+<dialog id="warning" onclick="this.close()" style="top:20%;">
 	<center>
 	If necessary, avoid your little one exiting Baby Smash<br/>
 	by following the instructions for <a href="https://www.youtube.com/watch?v=fzBi3EzfTRw">Apple's Guided Access</a>.
 	</center>
 	<hr/>
-	<img onclick="mode=0;" src="shapes.png"/>
-	<img onclick="mode=1;" src="digits.png"/>
-	<img onclick="mode=2;" src="letters.png"/>
+	<table>
+		<tr>
+			<td><img onclick="mode=0;" src="shapes.png"/></td>
+			<td><img onclick="mode=3;" src="Faces/faces.png"/></td>
+		</tr>
+		<tr>
+			<td><img onclick="mode=1;" src="digits.png"/></td>
+			<td><img onclick="mode=2;" src="letters.png"/></td>
+		</tr>
+	</table>	
 </dialog>
 <svg
 	xmlns="http://www.w3.org/2000/svg"

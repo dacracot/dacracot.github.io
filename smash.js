@@ -246,12 +246,28 @@ function digits () {
 	}
 //---------------------------------------------------------------------
 // const FACES = { ~~ Faces/faces.json
+const FACESMAX = FACES.faces.length;
+const FACESMIN = 0;
 //---------------------------------------------------------------------
 function faces() {
-	FACES.faces.forEach(face => {
-console.log("File:", face.file);
-console.log("Name:", face.name);
-		});
+	let x = randomIntegerRange(WIDTHMIN,WIDTHMAX);
+	let y = randomIntegerRange(HEIGHTMIN,HEIGHTMAX);
+	let myFace = randomIntegerRange(FACESMIN,FACESMAX);
+	let face =
+		"<image href=\"Faces/" +
+		FACES.faces[myFace].file + 
+		"\" x=\"" +
+		x +
+		"\" y=\"" +
+		y +
+		"\" width=\"" +
+		randomIntegerRange(RADIUSLOW,RADIUSHIGH) +
+		"\" height=\"" +
+		randomIntegerRange(RADIUSLOW,RADIUSHIGH) +
+		"\" />";
+// 	console.log("face - "+face);
+	SCREEN.innerHTML +=face;
+	speak(FACES.faces[myFace].name);
 	}
 //---------------------------------------------------------------------
 function boop () {
@@ -264,6 +280,9 @@ function boop () {
 			break;
 		case 2:
 			letters();
+			break;
+		case 3:
+			faces();
 			break;
 		default:
 			console.log("How did this happen?");
