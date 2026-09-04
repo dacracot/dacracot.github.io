@@ -161,7 +161,7 @@ function speak(text) {
 	synth.speak(utterance);
 	}
 //---------------------------------------------------------------------
-// const LETTERS = [ ~~ Letters/letters.json
+// const LETTERS = [ ~~ Letters/letters.js
 const LETTERSMAX = LETTERS.length;
 const LETTERSMIN = 0;
 //---------------------------------------------------------------------
@@ -185,7 +185,7 @@ function letters () {
 	speak(String.fromCharCode(myLetter+('a'.charCodeAt(0))));
 	}
 //---------------------------------------------------------------------
-// const DIGITS = [ ~~ Digits/digits.json
+// const DIGITS = [ ~~ Digits/digits.js
 const DIGITSMAX = DIGITS.length;
 const DIGITSMIN = 0;
 //---------------------------------------------------------------------
@@ -209,7 +209,7 @@ function digits () {
 	speak(String.fromCharCode(myDigit+('0'.charCodeAt(0))));
 	}
 //---------------------------------------------------------------------
-// const FACES = { ~~ Faces/faces.json
+// const FACES = { ~~ Faces/faces.js
 const FACESMAX = FACES.faces.length;
 const FACESMIN = 0;
 //---------------------------------------------------------------------
