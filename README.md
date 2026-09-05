@@ -14,11 +14,10 @@ There are no rules, scores, levels, menus, or objectives. The purpose is immedia
 
 Baby Smash is designed around a very young child's natural interaction with a touchscreen:
 
-1. Touch the screen.
-2. See something colorful appear.
-3. Hear a sound.
-4. Touch the screen again.
-5. Repeat.
+- Touch the screen.
+- See something appear.
+- Hear a sound.
+- Repeat.
 
 The application does not require the child to understand buttons, text, scores, game rules, or navigation. The entire screen effectively becomes the game controller.
 
@@ -28,15 +27,18 @@ Every click or touch invokes the game play.
 
 A single interaction produces:
 
-- One randomly selected shape
-  - at a random position on the screen
-  - of a random size
-  - of a random color
-- One randomly selected sound
+- One randomly selected image...
+  - at a random position on the screen,
+  - of a random size,
+  - of a random color (except faces)
+- Play a sound when...
+  - shapes that is random and goofy,
+  - digits or letters that names the item,
+  - faces that names the person
 
-The newly generated shape remains on the screen. Subsequent interactions add additional shapes rather than replacing the previous ones.
+The newly generated items remains on the screen. Subsequent interactions add additional items rather than replacing the previous ones.
 
-Over time, the screen therefore becomes a collection of randomly generated shapes.
+Over time, the screen therefore becomes a collection of randomly generated items.
 
 There is no explicit game-ending condition.
 
@@ -53,7 +55,7 @@ Every interaction is randomized, so the child receives a different response each
 
 ## Faces
 
-Driven by Faces dirctory:
+Driven by Faces storage:
 
 - Faces - `directory`
   - faces.js - `configuration file of images and names`
