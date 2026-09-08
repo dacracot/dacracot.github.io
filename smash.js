@@ -210,16 +210,17 @@ function digits () {
 	}
 //---------------------------------------------------------------------
 // const FACES = { ~~ Faces/faces.js
-const FACESMAX = FACES.faces.length;
+const FACESMAX = getFileCount();;
 const FACESMIN = 0;
 //---------------------------------------------------------------------
 function faces() {
 	let x = randomIntegerRange(WIDTHMIN,WIDTHMAX);
 	let y = randomIntegerRange(HEIGHTMIN,HEIGHTMAX);
 	let myFace = randomIntegerRange(FACESMIN,FACESMAX);
+	const record = await getFile(myFace);
 	let face =
-		"<image href=\"Faces/" +
-		FACES.faces[myFace].file + 
+		"<image href=\"" +
+		URL.createObjectURL(record.file) + 
 		"\" x=\"" +
 		x +
 		"\" y=\"" +
@@ -229,9 +230,9 @@ function faces() {
 		"\" height=\"" +
 		randomIntegerRange(RADIUSLOW,RADIUSHIGH) +
 		"\" />";
-// 	console.log("face - "+face);
+console.log("face - "+face);
 	SCREEN.innerHTML +=face;
-	speak(FACES.faces[myFace].name);
+	speak(record.name);
 	}
 //---------------------------------------------------------------------
 function boop () {

@@ -32,7 +32,7 @@
 	</style>
 </head>
 <body onclick="boop();">
-<dialog id="warning" onclick="this.close()" style="top:20%;">
+<dialog id="menu" onclick="this.close()" style="top:20%;">
 	<center>
 	If necessary, avoid your little one exiting Baby Smash<br/>
 	by following the instructions for <a href="https://www.youtube.com/watch?v=fzBi3EzfTRw">Apple's Guided Access</a>.
@@ -48,6 +48,37 @@
 			<td><img onclick="mode=2;" src="Letters/letters.png"/></td>
 		</tr>
 	</table>	
+</dialog>
+<dialog id="faces" onclick="this.close()" style="top:20%;">
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~- -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~- -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~- -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~- -->
+<input type="file" id="fileInput">
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~- -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~- -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~- -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~- -->
+<script>
+// Handle the file upload
+document.getElementById("fileInput").addEventListener("change", async event => {
+	const file = event.target.files[0];
+	if (!file) {
+		return;
+		}
+	try {
+		const id = await storeFile(file);
+		console.log("File stored with ID:", id);
+		}
+	catch (error) {
+		console.error("Unable to store file:", error);
+		}
+	});
+</script>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~- -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~- -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~- -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~- -->
 </dialog>
 <svg
 	xmlns="http://www.w3.org/2000/svg"

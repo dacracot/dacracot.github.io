@@ -13,6 +13,8 @@ const DATABASE = "BabySmashDB";
 const VERSION = 1;
 const STORE = "faces";
 //---------------------------------------------------------------------
+const database = await openDatabase();
+//---------------------------------------------------------------------
 function openDatabase() {
 	return new Promise((resolve, reject) => {
 		if (database) {
@@ -33,8 +35,6 @@ function openDatabase() {
 		request.onerror = () => reject(request.error);
 		});
 	}
-//---------------------------------------------------------------------
-const database = await openDatabase();
 //---------------------------------------------------------------------
 async function storeFile(faceName,faceImageFile) {
 	return new Promise((resolve, reject) => {
@@ -70,32 +70,3 @@ async function getFileCount() {
 		});
 	}
 //---------------------------------------------------------------------
-//---------------------------------------------------------------------
-//---------------------------------------------------------------------
-//---------------------------------------------------------------------
-<input type="file" id="fileInput">
-//---------------------------------------------------------------------
-// Handle the file upload
-document.getElementById("fileInput").addEventListener("change", async event => {
-	const file = event.target.files[0];
-	if (!file) {
-		return;
-		}
-	try {
-		const id = await storeFile(file);
-		console.log("File stored with ID:", id);
-		}
-	catch (error) {
-		console.error("Unable to store file:", error);
-		}
-	});
-//---------------------------------------------------------------------
-//---------------------------------------------------------------------
-
-const FACESMAX = getFileCount();
-for (let i = 0; i < FACESMAX; i++) {
-	const record = await getFile(i);
-	console.log(record.name);
-	console.log(URL.createObjectURL(record.file));
-	}
-
