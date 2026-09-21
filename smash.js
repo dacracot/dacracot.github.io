@@ -235,6 +235,29 @@ console.log("face - "+face);
 	speak(record.name);
 	}
 //---------------------------------------------------------------------
+// --------------------------------------------------------------------
+// accordion
+var accordions = document.getElementsByClassName("accordion");
+Array.from(accordions).forEach((accordion) => {
+	accordion.addEventListener("click", function() {
+		// close all
+		var toClose = document.getElementsByClassName("accordion");
+		Array.from(toClose).forEach((c) => {
+				c.classList.remove("active");
+				c.nextElementSibling.style.display = "none";
+			});
+		// open clicked
+		this.classList.toggle("active");
+		var panel = this.nextElementSibling;
+		if (panel.style.display === "block") {
+			panel.style.display = "none";
+			}
+		else {
+			panel.style.display = "block";
+			}
+		})
+	});
+// --------------------------------------------------------------------
 function boop () {
 	switch(mode) {
 		case 0:

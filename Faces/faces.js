@@ -13,7 +13,7 @@ const DATABASE = "BabySmashDB";
 const VERSION = 1;
 const STORE = "faces";
 //---------------------------------------------------------------------
-const database = await openDatabase();
+const database = openDatabase();
 //---------------------------------------------------------------------
 function openDatabase() {
 	return new Promise((resolve, reject) => {
@@ -69,4 +69,20 @@ async function getFileCount() {
 		request.onerror = () => reject(request.error);
 		});
 	}
+//---------------------------------------------------------------------
+	function addFile() {
+		const file = document.getElementById("fileInput").files[0];
+console.log(file);
+		if (!file) {
+console.log("No file");
+			return;
+			}
+		try {
+			const id = storeFile(file);
+console.log("File stored with ID:", id);
+			}
+		catch (error) {
+console.error("Unable to store file:", error);
+			}
+		}
 //---------------------------------------------------------------------
