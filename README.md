@@ -30,11 +30,10 @@ A single interaction produces:
 - One randomly selected image...
   - at a random position on the screen,
   - of a random size,
-  - of a random color (except faces)
+  - of a random color
 - Play a sound when...
   - shapes that is random and goofy,
   - digits or letters that names the item,
-  - faces that names the person
 
 The newly generated items remains on the screen. Subsequent interactions add additional items rather than replacing the previous ones.
 
