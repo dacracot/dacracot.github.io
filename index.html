@@ -24,19 +24,16 @@
 			font-family: Arial, Helvetica, sans-serif;
 			}
 		img {
-			height:180px;
-			width:180px;
+			height:120px;
+			width:120px;
 			border-radius: 4px;
 			border: 2px solid #555555;
-			}
-		.center {
-			align-items: center;
 			}
 	</style>
 </head>
 <body onclick="boop();">
-<dialog id="menu" class="center">
-	<p style="width: 90%; margin: auto;">
+<dialog id="menu">
+	<p>
 		<h4>Guided Access</h4>
 		If necessary, avoid your little
 		<br/>
@@ -47,17 +44,19 @@
 		for <a href="https://www.youtube.com/watch?v=fzBi3EzfTRw">Apple's Guided Access</a>.
 	</p>
 	<hr/>
-	<table>
-		<tr>
-			<td><img onclick="MODE=0;" src="Shapes/shapes.png"/></td>
-		</tr>
-		<tr>
-			<td><img onclick="MODE=1;" src="Digits/digits.png"/></td>
-		</tr>
-		<tr>
-			<td><img onclick="MODE=2;" src="Letters/letters.png"/></td>
-		</tr>
-	</table>	
+	<center>
+		<table>
+			<tr>
+				<td><img onclick="MODE=0;" src="Shapes/shapes.png"/></td>
+			</tr>
+			<tr>
+				<td><img onclick="MODE=1;" src="Digits/digits.png"/></td>
+			</tr>
+			<tr>
+				<td><img onclick="MODE=2;" src="Letters/letters.png"/></td>
+			</tr>
+		</table>
+	</center>
 </dialog>
 <svg
 	xmlns="http://www.w3.org/2000/svg"
