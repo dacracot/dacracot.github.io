@@ -33,60 +33,18 @@
 </head>
 <body onclick="boop();">
 <dialog id="menu" onclick="this.close()" style="top:20%;">
-	<button class="accordion">Guided Access</button>
-	<div class="panel">
-	  <p style="padding: 18px; width: 90%; margin: auto;">If necessary, avoid your little one exiting Baby Smash<br/>
-		by following the instructions for <a href="https://www.youtube.com/watch?v=fzBi3EzfTRw">Apple's Guided Access</a>.</p>
-	</div>
-	
-	<button class="accordion">Add Faces</button>
-	<div class="panel">
-	  <p>
-		<form>
-			<label for="nameInput">Name:</label>
-			<input type="text" id="nameInput"/>
-			<br/><br/>
-			<label for="fileInput">Face:</label>
-			<input type="file" id="fileInput" accept="image/*"/>
-			<br/><hr/>
-			<button onclick="addFile();">Submit</button>
-		</form>
-	  </p>
-	</div>
-	
-	<button class="accordion">Remove Faces</button>
-	<div class="panel">
-	  <p>
-		<table>
-			<thead>
-				<tr>
-					<th>Name</th>
-					<th>Face</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr class="deletion">
-					<td>xxxx</td>
-					<td>yyyy</td>
-				</tr>
-				<tr class="deletion">
-					<td>xxxx</td>
-					<td>yyyy</td>
-				</tr>
-				<tr class="deletion">
-					<td>xxxx</td>
-					<td>yyyy</td>
-				</tr>
-			</tbody>
-		</table>
-	  </p>
-	</div>
+	<p style="width: 90%; margin: auto;">
+		<h2>Guided Access</h2>
+		If necessary, avoid your little one exiting Baby Smash
+		<br/>
+		by following the instructions for
+		<a href="https://www.youtube.com/watch?v=fzBi3EzfTRw">Apple's Guided Access</a>.
+	</p>
+	<br/>
+	<hr/>
 	<table>
 		<tr>
 			<td><img onclick="mode=0;" src="Shapes/shapes.png"/></td>
-			<td><img onclick="mode=3;" src="Faces/faces.png"/></td>
-		</tr>
-		<tr>
 			<td><img onclick="mode=1;" src="Digits/digits.png"/></td>
 			<td><img onclick="mode=2;" src="Letters/letters.png"/></td>
 		</tr>
@@ -100,9 +58,6 @@
 	<g id="screen"></g>
 </svg>
 </body>
-<link rel="stylesheet" href="Library/oat.min.css">
-<script src="Library/oat.min.js" defer></script>
-<script src="Faces/faces.js"></script>
 <script src="Letters/letters.js"></script>
 <script src="Digits/digits.js"></script>
 <script src="Shapes/shapes.js"></script>

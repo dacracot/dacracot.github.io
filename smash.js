@@ -63,7 +63,7 @@ function playSound() {
 	}
 //---------------------------------------------------------------------
 const SCREEN = document.getElementById("screen");
-const DIALOG = document.getElementById("warning");
+const DIALOG = document.getElementById("menu");
 const SHAPESMAX = 5;
 const SHAPESMIN = 0;
 const RADIUSHIGH = 359;
@@ -209,54 +209,6 @@ function digits () {
 	speak(String.fromCharCode(myDigit+('0'.charCodeAt(0))));
 	}
 //---------------------------------------------------------------------
-// const FACES = { ~~ Faces/faces.js
-const FACESMAX = getFileCount();;
-const FACESMIN = 0;
-//---------------------------------------------------------------------
-function faces() {
-	let x = randomIntegerRange(WIDTHMIN,WIDTHMAX);
-	let y = randomIntegerRange(HEIGHTMIN,HEIGHTMAX);
-	let myFace = randomIntegerRange(FACESMIN,FACESMAX);
-	const record = await getFile(myFace);
-	let face =
-		"<image href=\"" +
-		URL.createObjectURL(record.file) + 
-		"\" x=\"" +
-		x +
-		"\" y=\"" +
-		y +
-		"\" width=\"" +
-		randomIntegerRange(RADIUSLOW,RADIUSHIGH) +
-		"\" height=\"" +
-		randomIntegerRange(RADIUSLOW,RADIUSHIGH) +
-		"\" />";
-console.log("face - "+face);
-	SCREEN.innerHTML +=face;
-	speak(record.name);
-	}
-//---------------------------------------------------------------------
-// --------------------------------------------------------------------
-// accordion
-var accordions = document.getElementsByClassName("accordion");
-Array.from(accordions).forEach((accordion) => {
-	accordion.addEventListener("click", function() {
-		// close all
-		var toClose = document.getElementsByClassName("accordion");
-		Array.from(toClose).forEach((c) => {
-				c.classList.remove("active");
-				c.nextElementSibling.style.display = "none";
-			});
-		// open clicked
-		this.classList.toggle("active");
-		var panel = this.nextElementSibling;
-		if (panel.style.display === "block") {
-			panel.style.display = "none";
-			}
-		else {
-			panel.style.display = "block";
-			}
-		})
-	});
 // --------------------------------------------------------------------
 function boop () {
 	switch(mode) {
@@ -269,13 +221,12 @@ function boop () {
 		case 2:
 			letters();
 			break;
-		case 3:
-			faces();
-			break;
 		default:
 			console.log("How did this happen?");
 		}
 	}
 //---------------------------------------------------------------------
+console.log("DIALOG.show(); 1 ");
 DIALOG.show();
+console.log("DIALOG.show(); 2 ");
 //---------------------------------------------------------------------
