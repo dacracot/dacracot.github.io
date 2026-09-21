@@ -32,20 +32,21 @@
 	</style>
 </head>
 <body onclick="boop();">
-<dialog id="warning" onclick="this.close()" style="top:20%;">
-	<center>
-	If necessary, avoid your little one exiting Baby Smash<br/>
-	by following the instructions for <a href="https://www.youtube.com/watch?v=fzBi3EzfTRw">Apple's Guided Access</a>.
-	</center>
+<dialog id="menu" style="top:20%;">
+	<p style="width: 90%; margin: auto;">
+		<h2>Guided Access</h2>
+		If necessary, avoid your little one exiting Baby Smash
+		<br/>
+		by following the instructions for
+		<a href="https://www.youtube.com/watch?v=fzBi3EzfTRw">Apple's Guided Access</a>.
+	</p>
+	<br/>
 	<hr/>
 	<table>
 		<tr>
-			<td><img onclick="mode=0;" src="Shapes/shapes.png"/></td>
-			<td><img onclick="mode=3;" src="Faces/faces.png"/></td>
-		</tr>
-		<tr>
-			<td><img onclick="mode=1;" src="Digits/digits.png"/></td>
-			<td><img onclick="mode=2;" src="Letters/letters.png"/></td>
+			<td><img onclick="MODE=0;" src="Shapes/shapes.png"/></td>
+			<td><img onclick="MODE=1;" src="Digits/digits.png"/></td>
+			<td><img onclick="MODE=2;" src="Letters/letters.png"/></td>
 		</tr>
 	</table>	
 </dialog>
@@ -57,7 +58,6 @@
 	<g id="screen"></g>
 </svg>
 </body>
-<script src="Faces/faces.js"></script>
 <script src="Letters/letters.js"></script>
 <script src="Digits/digits.js"></script>
 <script src="Shapes/shapes.js"></script>

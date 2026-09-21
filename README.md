@@ -30,11 +30,10 @@ A single interaction produces:
 - One randomly selected image...
   - at a random position on the screen,
   - of a random size,
-  - of a random color (except faces)
+  - of a random color
 - Play a sound when...
   - shapes that is random and goofy,
   - digits or letters that names the item,
-  - faces that names the person
 
 The newly generated items remains on the screen. Subsequent interactions add additional items rather than replacing the previous ones.
 
@@ -49,15 +48,5 @@ Baby Smash provides four interactive modes:
 - **Shapes** — colorful geometric shapes
 - **Digits** — numbers from 0 through 9
 - **Letters** — letters of the alphabet
-- **Faces** — familiar people and pets
 
 Every interaction is randomized, so the child receives a different response each time.
-
-## Faces
-
-Driven by Faces storage:
-
-- Faces - `directory`
-  - faces.js - `configuration file of images and names`
-  - faces.png - `menu icon`
-  - *.png - `images corresponding to files in the configuration`

@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------
 const SVG = document.querySelector("svg");
-let mode = 0; // 0=shapes, 1=digits, 2=letters
+let MODE = -1; // 0=shapes, 1=digits, 2=letters
 //---------------------------------------------------------------------
 let WIDTHMAX = 600;
 const WIDTHMIN = 0;
@@ -63,7 +63,7 @@ function playSound() {
 	}
 //---------------------------------------------------------------------
 const SCREEN = document.getElementById("screen");
-const DIALOG = document.getElementById("warning");
+const DIALOG = document.getElementById("menu");
 const SHAPESMAX = 5;
 const SHAPESMIN = 0;
 const RADIUSHIGH = 359;
@@ -209,47 +209,23 @@ function digits () {
 	speak(String.fromCharCode(myDigit+('0'.charCodeAt(0))));
 	}
 //---------------------------------------------------------------------
-// const FACES = { ~~ Faces/faces.js
-const FACESMAX = FACES.faces.length;
-const FACESMIN = 0;
-//---------------------------------------------------------------------
-function faces() {
-	let x = randomIntegerRange(WIDTHMIN,WIDTHMAX);
-	let y = randomIntegerRange(HEIGHTMIN,HEIGHTMAX);
-	let myFace = randomIntegerRange(FACESMIN,FACESMAX);
-	let face =
-		"<image href=\"Faces/" +
-		FACES.faces[myFace].file + 
-		"\" x=\"" +
-		x +
-		"\" y=\"" +
-		y +
-		"\" width=\"" +
-		randomIntegerRange(RADIUSLOW,RADIUSHIGH) +
-		"\" height=\"" +
-		randomIntegerRange(RADIUSLOW,RADIUSHIGH) +
-		"\" />";
-// 	console.log("face - "+face);
-	SCREEN.innerHTML +=face;
-	speak(FACES.faces[myFace].name);
-	}
-//---------------------------------------------------------------------
+// --------------------------------------------------------------------
 function boop () {
-	switch(mode) {
+	switch(MODE) {
 		case 0:
+			DIALOG.close();
 			shapes();
 			break;
 		case 1:
+			DIALOG.close();
 			digits();
 			break;
 		case 2:
+			DIALOG.close();
 			letters();
 			break;
-		case 3:
-			faces();
-			break;
 		default:
-			console.log("How did this happen?");
+			break;
 		}
 	}
 //---------------------------------------------------------------------
