@@ -1,5 +1,7 @@
 //---------------------------------------------------------------------
 const SVG = document.querySelector("svg");
+let MODE = -1; // 0=shapes, 1=digits, 2=letters
+//---------------------------------------------------------------------
 let WIDTHMAX = 600;
 const WIDTHMIN = 0;
 let HEIGHTMAX = 600;
@@ -43,7 +45,7 @@ function randomIntegerRange (min = 0, max = 1200) {
 	return(Math.floor((Math.random()*(max-min))+min));
 	}
 //---------------------------------------------------------------------
-const COLORS = ["red","orange","yellow","green","blue","indigo","violet","white","black"];
+const COLORS = ["red","orange","yellow","green","blue","indigo","violet","white","#111111"]; // blackish
 const COLORSMAX = COLORS.length;
 const COLORSMIN = 0;
 //---------------------------------------------------------------------
@@ -61,15 +63,15 @@ function playSound() {
 	}
 //---------------------------------------------------------------------
 const SCREEN = document.getElementById("screen");
-const DIALOG = document.getElementById("warning");
+const DIALOG = document.getElementById("menu");
 const SHAPESMAX = 5;
 const SHAPESMIN = 0;
-const RADIUSHIGH = 180;
+const RADIUSHIGH = 359;
 const RADIUSLOW = 48;
 const TRIANGLE = 3;
 const PENTAGON = 5;
 //---------------------------------------------------------------------
-function boop () {
+function shapes () {
 	let shape = "";
 	switch(randomIntegerRange(SHAPESMIN,SHAPESMAX)) {
 		case 0:
@@ -150,6 +152,81 @@ function boop () {
 		}
 	SCREEN.innerHTML +=shape;
  	playSound();
+	}
+//---------------------------------------------------------------------
+function speak(text) {
+	const synth = window.speechSynthesis;
+	synth.cancel();
+	const utterance = new SpeechSynthesisUtterance(text);
+	synth.speak(utterance);
+	}
+//---------------------------------------------------------------------
+// const LETTERS = [ ~~ Letters/letters.js
+const LETTERSMAX = LETTERS.length;
+const LETTERSMIN = 0;
+//---------------------------------------------------------------------
+function letters () {
+	let x = randomIntegerRange(WIDTHMIN,WIDTHMAX);
+	let y = randomIntegerRange(HEIGHTMIN,HEIGHTMAX);
+	let myLetter = randomIntegerRange(LETTERSMIN,LETTERSMAX);
+	let letter =
+		"<path d=\"" +
+		LETTERS[myLetter] +
+		"\" fill=\"" +
+		randomColor() +
+ 		"\" transform=\"" +
+		"translate(" + 
+		x + "," + y +
+		") scale(" + 
+ 		randomIntegerRange(1,5)  +
+ 		")\"/>";
+// 	console.log("letter - "+letter);
+	SCREEN.innerHTML +=letter;
+	speak(String.fromCharCode(myLetter+('a'.charCodeAt(0))));
+	}
+//---------------------------------------------------------------------
+// const DIGITS = [ ~~ Digits/digits.js
+const DIGITSMAX = DIGITS.length;
+const DIGITSMIN = 0;
+//---------------------------------------------------------------------
+function digits () {
+	let x = randomIntegerRange(WIDTHMIN,WIDTHMAX);
+	let y = randomIntegerRange(HEIGHTMIN,HEIGHTMAX);
+	let myDigit = randomIntegerRange(DIGITSMIN,DIGITSMAX);
+	let digit =
+		"<path d=\"" +
+		DIGITS[myDigit] +
+		"\" fill=\"" +
+		randomColor() +
+		"\" transform=\"" +
+		"translate(" + 
+		x + "," + y +
+		") scale(" + 
+ 		randomIntegerRange(5,12)  +
+		")\"/>";
+// 	console.log("digit - "+digit);
+	SCREEN.innerHTML +=digit;
+	speak(String.fromCharCode(myDigit+('0'.charCodeAt(0))));
+	}
+//---------------------------------------------------------------------
+// --------------------------------------------------------------------
+function boop () {
+	switch(MODE) {
+		case 0:
+			DIALOG.close();
+			shapes();
+			break;
+		case 1:
+			DIALOG.close();
+			digits();
+			break;
+		case 2:
+			DIALOG.close();
+			letters();
+			break;
+		default:
+			break;
+		}
 	}
 //---------------------------------------------------------------------
 DIALOG.show();
