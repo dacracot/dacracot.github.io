@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------
 const SVG = document.querySelector("svg");
-let mode = 0; // 0=shapes, 1=digits, 2=letters
+let MODE = -1; // 0=shapes, 1=digits, 2=letters
 //---------------------------------------------------------------------
 let WIDTHMAX = 600;
 const WIDTHMIN = 0;
@@ -211,22 +211,23 @@ function digits () {
 //---------------------------------------------------------------------
 // --------------------------------------------------------------------
 function boop () {
-	switch(mode) {
+	switch(MODE) {
 		case 0:
+			DIALOG.close();
 			shapes();
 			break;
 		case 1:
+			DIALOG.close();
 			digits();
 			break;
 		case 2:
+			DIALOG.close();
 			letters();
 			break;
 		default:
-			console.log("How did this happen?");
+			console.log("MODE = "+MODE);
 		}
 	}
 //---------------------------------------------------------------------
-console.log("DIALOG.show(); 1 ");
 DIALOG.show();
-console.log("DIALOG.show(); 2 ");
 //---------------------------------------------------------------------
