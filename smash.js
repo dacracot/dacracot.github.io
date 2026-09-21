@@ -225,7 +225,7 @@ function boop () {
 			letters();
 			break;
 		default:
-			console.log("MODE = "+MODE);
+			break;
 		}
 	}
 //---------------------------------------------------------------------
