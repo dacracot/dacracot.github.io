@@ -208,26 +208,40 @@ function digits () {
 	SCREEN.innerHTML +=digit;
 	speak(String.fromCharCode(myDigit+('0'.charCodeAt(0))));
 	}
-//---------------------------------------------------------------------
 // --------------------------------------------------------------------
 function boop () {
+console.log("--1--");
+	DIALOG.close();
+console.log("--2--");
 	switch(MODE) {
 		case 0:
-			DIALOG.close();
+console.log("--3--");
 			shapes();
+console.log("--4--");
 			break;
 		case 1:
-			DIALOG.close();
+console.log("--5--");
 			digits();
+console.log("--6--");
 			break;
 		case 2:
-			DIALOG.close();
+console.log("--7--");
 			letters();
+console.log("--8--");
 			break;
 		default:
+console.log("--9--");
 			break;
 		}
+console.log("--10--");
+	return false;
 	}
+//---------------------------------------------------------------------
+document.addEventListener("click", function(event){
+console.log("-1-");
+	boop();
+console.log("-2-");
+	});
 //---------------------------------------------------------------------
 DIALOG.show();
 //---------------------------------------------------------------------
