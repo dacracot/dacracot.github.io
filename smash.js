@@ -210,40 +210,29 @@ function digits () {
 	}
 // --------------------------------------------------------------------
 function boop () {
-console.log("-1- MODE = "+MODE);
-	DIALOG.close();
-console.log("-2-");
 	switch(MODE) {
 		case 0:
-console.log("-3-");
 			shapes();
-console.log("-4-");
 			break;
 		case 1:
-console.log("-5-");
 			digits();
-console.log("-6-");
 			break;
 		case 2:
-console.log("-7-");
 			letters();
-console.log("-8-");
 			break;
 		default:
-console.log("-9-");
 			break;
 		}
-console.log("-10-");
 	return false;
 	}
 //---------------------------------------------------------------------
 function selected(mode) {
 	MODE = mode;
+	DIALOG.close();
+	boop();
 	document.addEventListener("mousedown", function(event){
-console.log(event);
-console.log("--1--");
+//		console.log(event);
 		boop();
-console.log("--2--");
 		});
 	}
 //---------------------------------------------------------------------
