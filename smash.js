@@ -208,26 +208,34 @@ function digits () {
 	SCREEN.innerHTML +=digit;
 	speak(String.fromCharCode(myDigit+('0'.charCodeAt(0))));
 	}
-//---------------------------------------------------------------------
 // --------------------------------------------------------------------
 function boop () {
 	switch(MODE) {
 		case 0:
-			DIALOG.close();
 			shapes();
 			break;
 		case 1:
-			DIALOG.close();
 			digits();
 			break;
 		case 2:
-			DIALOG.close();
 			letters();
 			break;
 		default:
 			break;
 		}
+	return false;
 	}
+//---------------------------------------------------------------------
+function selected(mode) {
+	MODE = mode;
+	DIALOG.close();
+	boop();
+	document.addEventListener("mousedown", function(event){
+//		console.log(event);
+		boop();
+		});
+	}
+//---------------------------------------------------------------------
 //---------------------------------------------------------------------
 DIALOG.show();
 //---------------------------------------------------------------------
