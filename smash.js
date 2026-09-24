@@ -53,17 +53,17 @@ function randomColor () {
 	return(COLORS[randomIntegerRange(COLORSMIN,COLORSMAX)]);
 	}
 //---------------------------------------------------------------------
-const SOUNDS = ["Shapes/Sounds/boing.mp3","Shapes/Sounds/blip.mp3","Shapes/Sounds/toot.mp3","Shapes/Sounds/blurp.mp3","Shapes/Sounds/floop.mp3","Shapes/Sounds/pluck.mp3","Shapes/Sounds/honk.mp3","Shapes/Sounds/peop.mp3","Shapes/Sounds/bell.mp3","Shapes/Sounds/crack.mp3"];
-const SOUNDSMAX = SOUNDS.length;
-const SOUNDSMIN = 0;
-//---------------------------------------------------------------------
-function playSound() {
-	const audio = new Audio(SOUNDS[randomIntegerRange(SOUNDSMIN,SOUNDSMAX)]);
+function playSound(sound) {
+	const audio = new Audio(sound);
 	audio.play();
 	}
 //---------------------------------------------------------------------
 const SCREEN = document.getElementById("screen");
 const DIALOG = document.getElementById("menu");
+//---------------------------------------------------------------------
+// const SOUNDS = [ ~~ Shapes/shapes.js
+const SOUNDSMAX = SOUNDS.length;
+const SOUNDSMIN = 0;
 const SHAPESMAX = 5;
 const SHAPESMIN = 0;
 const RADIUSHIGH = 359;
@@ -151,7 +151,7 @@ function shapes () {
 				// console.log("star - "+shape);
 		}
 	SCREEN.innerHTML +=shape;
- 	playSound();
+ 	playSound(SOUNDS[randomIntegerRange(SOUNDSMIN,SOUNDSMAX)]);
 	}
 //---------------------------------------------------------------------
 function speak(text) {
