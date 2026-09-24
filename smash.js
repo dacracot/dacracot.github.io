@@ -161,54 +161,6 @@ function speak(text) {
 	synth.speak(utterance);
 	}
 //---------------------------------------------------------------------
-// const LETTERS = [ ~~ Letters/letters.js
-const LETTERSMAX = LETTERS.length;
-const LETTERSMIN = 0;
-//---------------------------------------------------------------------
-function letters () {
-	let x = randomIntegerRange(WIDTHMIN,WIDTHMAX);
-	let y = randomIntegerRange(HEIGHTMIN,HEIGHTMAX);
-	let myLetter = randomIntegerRange(LETTERSMIN,LETTERSMAX);
-	let letter =
-		"<path d=\"" +
-		LETTERS[myLetter] +
-		"\" fill=\"" +
-		randomColor() +
- 		"\" transform=\"" +
-		"translate(" + 
-		x + "," + y +
-		") scale(" + 
- 		randomIntegerRange(1,5)  +
- 		")\"/>";
-// 	console.log("letter - "+letter);
-	SCREEN.innerHTML +=letter;
-	speak(String.fromCharCode(myLetter+('a'.charCodeAt(0))));
-	}
-//---------------------------------------------------------------------
-// const DIGITS = [ ~~ Digits/digits.js
-const DIGITSMAX = DIGITS.length;
-const DIGITSMIN = 0;
-//---------------------------------------------------------------------
-function digits () {
-	let x = randomIntegerRange(WIDTHMIN,WIDTHMAX);
-	let y = randomIntegerRange(HEIGHTMIN,HEIGHTMAX);
-	let myDigit = randomIntegerRange(DIGITSMIN,DIGITSMAX);
-	let digit =
-		"<path d=\"" +
-		DIGITS[myDigit] +
-		"\" fill=\"" +
-		randomColor() +
-		"\" transform=\"" +
-		"translate(" + 
-		x + "," + y +
-		") scale(" + 
- 		randomIntegerRange(5,12)  +
-		")\"/>";
-// 	console.log("digit - "+digit);
-	SCREEN.innerHTML +=digit;
-	speak(String.fromCharCode(myDigit+('0'.charCodeAt(0))));
-	}
-// --------------------------------------------------------------------
 function boop () {
 	switch(MODE) {
 		case 0:
