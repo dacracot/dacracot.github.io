@@ -53,7 +53,7 @@ function randomColor () {
 	return(COLORS[randomIntegerRange(COLORSMIN,COLORSMAX)]);
 	}
 //---------------------------------------------------------------------
-const SOUNDS = ["Sounds/boing.mp3","Sounds/blip.mp3","Sounds/toot.mp3","Sounds/blurp.mp3","Sounds/floop.mp3","Sounds/pluck.mp3","Sounds/honk.mp3","Sounds/peop.mp3","Sounds/bell.mp3","Sounds/crack.mp3"];
+const SOUNDS = ["Shapes/Sounds/boing.mp3","Shapes/Sounds/blip.mp3","Shapes/Sounds/toot.mp3","Shapes/Sounds/blurp.mp3","Shapes/Sounds/floop.mp3","Shapes/Sounds/pluck.mp3","Shapes/Sounds/honk.mp3","Shapes/Sounds/peop.mp3","Shapes/Sounds/bell.mp3","Shapes/Sounds/crack.mp3"];
 const SOUNDSMAX = SOUNDS.length;
 const SOUNDSMIN = 0;
 //---------------------------------------------------------------------
